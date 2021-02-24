@@ -1,0 +1,76 @@
+.header {    
+    display: inline-block;
+    z-index: 99;
+    position: relative;              
+    padding: 0;
+    transition: background-color 0.3s ease-out;
+}
+
+.header .logo {
+    font-family: 'Raleway', sans-serif;
+    font-size: 20px;
+    float: left; 
+    margin-right: 16px;       
+    height: 30px;        
+}
+
+.layout-light .header {
+    background-color: #fff;
+    color:  rgba(0, 0, 0, 0.85);
+}
+
+.layout-dark .header {
+    background-color: #161b22;
+    color: rgba(255, 255, 255, 0.85);
+}
+
+.layout-light .header .menu {
+    background-color: #fff;
+}
+
+.layout-dark .header .menu {
+    background-color: #161b22;
+}
+
+.content {
+    padding: 0;
+    z-index: 1;
+    min-height: 80vh;
+    position: relative;
+    margin-top: 24px;
+}
+
+.content .theme-switch-container {    
+    /* display: flex;
+    justify-content: flex-end;
+    padding: 16px 5%; */
+    position: fixed;
+    z-index: 2;
+    top: 50%;
+    right: 1%;
+}
+
+.content .content-item {
+    padding: 0 5% 32px 5%;    
+}
+
+.footer {
+    text-align: center;
+    padding: 8px;
+    min-height: 20vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.layout-light .footer,
+.layout-light .footer .ant-btn {
+    background-color: #fff;
+    color:  rgba(0, 0, 0, 0.85);
+}
+
+.layout-dark .footer,
+.layout-dark .footer .ant-btn {
+    background-color: #161b22;
+    color: rgba(255, 255, 255, 0.85);
+}

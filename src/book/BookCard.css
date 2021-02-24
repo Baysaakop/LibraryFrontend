@@ -1,0 +1,27 @@
+div.ant-card-body {
+    padding: 8px 16px;
+}
+
+div.ant-card-meta-title {
+    font-size: 14px;
+}
+
+div.cover {
+    position: relative;        
+}
+
+img.cover-img {
+    width: 100%;
+    height: auto;
+}
+
+div.cover-overlay {
+    position: absolute;
+    top: 8px;
+    right: 8px;
+    padding: 4px;
+    background: rgb(0, 0, 0);
+    background: rgba(0, 0, 0, 0.7);
+    border-radius: 5px;
+    color: #fff;
+}

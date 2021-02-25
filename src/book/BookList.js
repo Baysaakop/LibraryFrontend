@@ -49,21 +49,23 @@ function BookList (props) {
 
     function onNameSearch(value) {        
         setSearch(value);
+        setPage(1);
         setCategory(undefined)
         form.setFieldsValue({            
             category: undefined           
         })     
-        getBooks(value, undefined, page);
+        getBooks(value, undefined, 1);
     }
 
     function selectCategory (value) {
-        const target = categories.find(x => x.id === parseInt(value))  
+        const target = categories.find(x => x.id === parseInt(value))          
         setCategory(target);
+        setPage(1);
         setSearch("");
         form.setFieldsValue({            
             name: undefined           
         }) 
-        getBooks("", target, page)
+        getBooks("", target, 1)
     }    
 
     function getBooks (name, type, page) {
@@ -73,15 +75,11 @@ function BookList (props) {
         if (name && name.length > 0) {
             params = "search=" + name;
         }
-        if (type) {
-            if (params.length > 0) {
-                params = params + "&";
-            }
-            params = params + "search=" + type.id;
+        else if (type) {
+            params = "search=" + type.id;
         }
-        if (params.length > 0) {
-            params = "?" + params + "&page=" + page;
-        }                
+        params = "?" + params + "&ordering=-created_at&page=" + page;     
+        console.log(url + params)
         axios({
             method: 'GET',
             url: url + params

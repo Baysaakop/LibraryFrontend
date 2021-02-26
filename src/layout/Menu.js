@@ -26,7 +26,7 @@ function CustomMenu (props) {
                     'Content-Type': 'application/json',
                     'Authorization': `Token ${props.token}`
                 }
-            }).then(response => {            
+            }).then(response => {           
                 setUser(response.data)
             }).catch(error => {
                 console.log(error)
@@ -71,7 +71,7 @@ function CustomMenu (props) {
                     </Button>
                     <Menu 
                         className="menu" 
-                        theme={props.darkMode ? "dark" : "light"} 
+                        theme="dark"
                         mode="inline" hidden={collapsed} 
                         onClick={handleMenuClick}
                         defaultSelectedKeys={[current]}
@@ -136,7 +136,7 @@ function CustomMenu (props) {
             ) : (
                 <Menu 
                     className="menu" 
-                    theme={props.darkMode ? "dark" : "light"} 
+                    theme="dark"
                     mode="horizontal" 
                     onClick={handleMenuClick} 
                     defaultSelectedKeys={[current]} 

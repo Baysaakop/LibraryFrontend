@@ -4,7 +4,7 @@ import { connect } from 'react-redux';
 import axios from 'axios';
 import api from '../api';
 import { FieldNumberOutlined, ReadOutlined, UserOutlined, EditOutlined, MobileOutlined, LockOutlined } from '@ant-design/icons';
-import ActiveOrders from '../order/ActiveOrders';
+import OrderHistory from '../order/OrderHistory';
 
 const { TabPane } = Tabs;
 const { Title } = Typography;
@@ -111,7 +111,7 @@ function Profile (props) {
                                 </div>
                             </TabPane> 
                             <TabPane key={2} tab={<span><ReadOutlined />Захиалгууд</span>}>
-                                <ActiveOrders code={user.profile.code} />
+                                <OrderHistory code={user.profile.code} />
                             </TabPane>  
                         </Tabs>
                     </div>

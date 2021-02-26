@@ -180,7 +180,7 @@ function Vote (props) {
                     <Countdown title="Дуусах хугацаа:" value={deadline} format="D өдөр H цаг m мин s сек" valueStyle={{ fontSize: '16px' }} />
                 </div>
                 {voteSelect ? (
-                    <Table columns={columns} dataSource={getVoteOptions(voteSelect.options)} showHeader={false} pagination={{ pageSize: 8, }} />
+                    <Table columns={columns} dataSource={getVoteOptions(voteSelect.options)} showHeader={false} pagination={{ pageSize: 10, }} />
                 ) : (
                     <></>
                 )}           

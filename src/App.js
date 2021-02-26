@@ -8,15 +8,15 @@ import { connect } from 'react-redux';
 
 class App extends Component {
 
-    componentDidMount() {            
-        this.props.onTryAutoSignup();
-    }
+    // componentDidMount() {            
+    //     this.props.onTryAutoSignup();
+    // }
 
     render() {
         return (
             <div className="App">
                 <Router> 
-                    <CustomLayout {...this.props}>
+                    <CustomLayout>
                         <BaseRouter />
                     </CustomLayout>
                 </Router>
@@ -25,16 +25,4 @@ class App extends Component {
     }    
 }
     
-const mapStateToProps = state => {
-    return {        
-        username: state.username
-    }
-}
-  
-const mapDispatchToProps = dispatch => {
-    return {
-        onTryAutoSignup: () => dispatch(actions.authCheckState())
-    }
-}
-
-export default connect(mapStateToProps, mapDispatchToProps)(App);
+export default App;

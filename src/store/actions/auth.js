@@ -9,11 +9,10 @@ export const authStart = () => {
     };
 }
 
-export const authSuccess = (token, username) => {
+export const authSuccess = (token) => {
     return {
         type: actionTypes.AUTH_SUCCESS,
-        token: token,
-        username: username
+        token: token,        
     };
 }
 
@@ -26,8 +25,6 @@ export const authFail = error => {
 
 export const logout = () => {
     localStorage.removeItem('token');
-    localStorage.removeItem('username');
-    localStorage.removeItem('expirationDate');    
     return {
         type: actionTypes.AUTH_LOGOUT
     };
@@ -48,15 +45,30 @@ export const authLogin = (username, password) => {
             username: username,
             password: password
         })
-        .then(res => {
+        .then(res => {            
             const token = res.data.key;
-            const expirationDate = new Date(new Date().getTime() + 3600 * 1000 * 168);
-            localStorage.setItem('token', token);
-            localStorage.setItem('username', username);
-            localStorage.setItem('expirationDate', expirationDate);
-            dispatch(authSuccess(token, username));
-            dispatch(checkAuthTimeout(3600));
-            message.info(`Тавтай морил, ${username}`);
+            axios({
+                method: 'GET',
+                url: api.profile,
+                headers: {
+                    'Content-Type': 'application/json',
+                    'Authorization': `Token ${token}`
+                }
+            }).then(response => {                     
+                let user = response.data;
+                console.log(user);
+                if (user.profile.verified === true) {
+                    localStorage.setItem('token', token);
+                    dispatch(authSuccess(token));
+                } else {
+                    message.warning("Таны мэдээллийг шалгаж байна. Баталгаажуултал түр хүлээнэ үү.");
+                    dispatch(authFail("Account not approved"));
+                }                   
+            }).catch(error => {
+                dispatch(authFail(error));
+                message.error("Алдаа гарлаа. Дахин оролдоно уу.")
+                console.log(error)
+            })
         })
         .catch(err => {
             dispatch(authFail(err));
@@ -72,23 +84,18 @@ export const authLogin = (username, password) => {
     }
 }
 
-export const authSignup = (username, password1, password2) => {
+export const authSignup = (username, firstname, lastname, password1, password2) => {
     return dispatch => {
         dispatch(authStart());
         axios.post(api.signup, {
-            username: username,            
+            username: username,  
+            first_name: firstname,  
+            last_name: lastname,            
             password1: password1,
             password2: password2
         })
         .then(res => {
-            const token = res.data.key;
-            const expirationDate = new Date(new Date().getTime() + 3600 * 1000 * 168);
-            localStorage.setItem('token', token);            
-            localStorage.setItem('username', username);
-            localStorage.setItem('expirationDate', expirationDate);
-            dispatch(authSuccess(token, username));
-            dispatch(checkAuthTimeout(3600));
-            message.info(`Тавтай морил, ${username}`);
+            message.info("Таны хүсэлтийг админ руу илгээлээ. Админ зөвшөөрөл олгосны дараа та нэвтрэх боломжтой болно.", 5);
         })
         .catch(err => {
             dispatch(authFail(err))

@@ -8,7 +8,7 @@ import * as actions from '../store/actions/auth';
 const loadingIcon = <LoadingOutlined style={{ fontSize: 24 }} spin />;
 
 const Login = (props) => {
-    const [form] = Form.useForm();    
+    const [form] = Form.useForm();        
     
     const onFinish = (values) => {                
         if (isNaN(values.username)) {
@@ -81,7 +81,7 @@ const Login = (props) => {
                                         <Input.Password prefix={<LockOutlined style={{ color: '#a1a1a1' }} />} placeholder="Нууц үг" />
                                     </Form.Item>
                                     <Form.Item>
-                                        <Button type="primary" htmlType="submit" style={{ width: '100%' }}>
+                                        <Button type="primary" htmlType="submit" style={{ width: '100%', marginBottom: '8px' }}>
                                             Нэвтрэх
                                         </Button>
                                         <p> эсвэл 

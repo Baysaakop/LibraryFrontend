@@ -1,6 +1,6 @@
 import React from 'react';
 import { Form, Input, Button, Typography, Result, Spin, InputNumber, message } from 'antd';
-import { FieldNumberOutlined, LoadingOutlined, LockOutlined } from '@ant-design/icons';
+import { FieldNumberOutlined, LoadingOutlined, LockOutlined, UserOutlined } from '@ant-design/icons';
 import { connect } from 'react-redux';
 import { NavLink } from 'react-router-dom';
 import * as actions from '../store/actions/auth';
@@ -14,7 +14,7 @@ const Signup = (props) => {
         if (isNaN(values.username)) {
             message.warning("SAP код нь зөвхөн цифрээс бүрдэхийг анхаарна уу.")
         } else {
-            props.onAuth(values.username, values.password, values.confirm);      
+            props.onAuth(values.username, values.firstname, values.lastname, values.password, values.confirm);      
             props.history.push('/'); 
         }         
     };
@@ -63,59 +63,31 @@ const Signup = (props) => {
                                         ]}
                                     >
                                         <Input prefix={<FieldNumberOutlined style={{ color: '#a1a1a1' }} />} placeholder="SAP #" />
-                                    </Form.Item>
-                                    {/* <Form.Item
-                                        name="last_name"         
-                                        label="Овог"                       
+                                    </Form.Item> 
+                                    <Form.Item
+                                        name="lastname"                                                          
+                                        label="Овог"
                                         rules={[
-                                        {
-                                            required: true,
-                                            message: 'Овгоо оруулна уу',
-                                        },
+                                            {
+                                                required: true,
+                                                message: 'Овог оруулна уу',   
+                                            }
                                         ]}
                                     >
                                         <Input prefix={<UserOutlined style={{ color: '#a1a1a1' }} />} placeholder="Овог" />
                                     </Form.Item>
                                     <Form.Item
-                                        name="first_name"         
-                                        label="Нэр"                       
+                                        name="firstname"                                                          
+                                        label="Нэр"
                                         rules={[
-                                        {
-                                            required: true,
-                                            message: 'Нэрээ оруулна уу',
-                                        },
+                                            {
+                                                required: true,
+                                                message: 'Нэр оруулна уу',   
+                                            }
                                         ]}
                                     >
                                         <Input prefix={<UserOutlined style={{ color: '#a1a1a1' }} />} placeholder="Нэр" />
-                                    </Form.Item> */}
-                                    {/* <Form.Item
-                                        name="email"         
-                                        label="Мэйл хаяг"                       
-                                        rules={[
-                                        {
-                                            type: 'email',
-                                            message: 'Та зөв мэйл хаяг оруулна уу.',
-                                        },
-                                        {
-                                            required: true,
-                                            message: 'Мэйл хаягаа оруулна уу.',
-                                        },
-                                        ]}
-                                    >
-                                        <Input prefix={<MailOutlined style={{ color: '#a1a1a1' }} />} placeholder="Цахим хаяг" />
-                                    </Form.Item>          */}
-                                    {/* <Form.Item
-                                        name="mobile"    
-                                        label="Утасны дугаар"                                        
-                                        rules={[                                
-                                        {
-                                            required: true,
-                                            message: 'Утасны дугаараа оруулна уу',
-                                        },
-                                        ]}
-                                    >
-                                        <Input prefix={<MobileOutlined style={{ color: '#a1a1a1' }} />} placeholder="Утасны дугаар" />
-                                    </Form.Item>                            */}
+                                    </Form.Item>                                    
                                     <Form.Item
                                         name="password"   
                                         label="Нууц үг"                                         
@@ -152,7 +124,7 @@ const Signup = (props) => {
                                         <Input.Password prefix={<LockOutlined style={{ color: '#a1a1a1' }} />} placeholder="Нууц үг давтах" />
                                     </Form.Item>
                                     <Form.Item>
-                                        <Button type="primary" htmlType="submit" style={{ width: '100%' }}>
+                                        <Button type="primary" htmlType="submit" style={{ width: '100%', marginBottom: '8px' }}>
                                             Бүртгүүлэх
                                         </Button>
                                         <p> эсвэл 
@@ -178,7 +150,7 @@ const mapStateToProps = (state) => {
 
 const mapDispatchToProps = dispatch => {
     return {
-        onAuth: (username, password1, password2) => dispatch(actions.authSignup(username, password1, password2))
+        onAuth: (username, firstname, lastname, password1, password2) => dispatch(actions.authSignup(username, firstname, lastname, password1, password2))
     }
 }
 

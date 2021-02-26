@@ -9,7 +9,7 @@ const { Title } = Typography;
 const { TextArea, Search } = Input;
 const { Option } = Select;
 
-function StaffAdd (props) {
+function RoleChange (props) {
 
     const [form] = Form.useForm();
     const [loading, setLoading] = useState(false);
@@ -167,4 +167,4 @@ const mapStateToProps = state => {
     }
 }
 
-export default connect(mapStateToProps)(StaffAdd);
+export default connect(mapStateToProps)(RoleChange);

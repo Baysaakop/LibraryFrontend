@@ -1,11 +1,12 @@
 import React, { useEffect, useState } from 'react';
 import { Breadcrumb, Grid, Button, Result, Tabs, message } from 'antd';
-import { TeamOutlined, DiffOutlined, UnorderedListOutlined, PlusCircleOutlined, BarChartOutlined } from '@ant-design/icons';
+import { TeamOutlined, DiffOutlined, UnorderedListOutlined, PlusCircleOutlined, BarChartOutlined, ReloadOutlined, UserSwitchOutlined, UserAddOutlined } from '@ant-design/icons';
 import axios from 'axios';
 import api from '../api';
 import { withRouter } from 'react-router-dom';
 import { connect } from 'react-redux';
-import StaffAdd from './StaffAdd';
+import RoleChange from './RoleChange';
+import UserRequests from './UserRequests';
 
 const { useBreakpoint } = Grid;
 const { TabPane } = Tabs;
@@ -63,9 +64,12 @@ function Admin (props) {
                     <Tabs defaultActiveKey={1}>
                         <TabPane key={1} tab={<span><TeamOutlined />Ажилтан</span>}>
                             <Tabs tabPosition="left">
-                                <TabPane tab={<span><DiffOutlined />{screens.xs ? '' : 'Ажилтны эрх солих'}</span>} key="add">
-                                    <StaffAdd />
-                                </TabPane>                                
+                                <TabPane tab={<span><UserAddOutlined style={{ fontSize: '18px' }} />{screens.xs ? '' : 'Шинэ хэрэглэгчийн хүсэлтүүд'}</span>} key="add">
+                                    <UserRequests />
+                                </TabPane>  
+                                <TabPane tab={<span><UserSwitchOutlined style={{ fontSize: '18px' }} />{screens.xs ? '' : 'Ажилтны эрх солих'}</span>} key="switch">
+                                    <RoleChange />
+                                </TabPane>                                                               
                             </Tabs>
                         </TabPane>
                         <TabPane key={2} tab={<span><UnorderedListOutlined />Санал асуулга</span>}>

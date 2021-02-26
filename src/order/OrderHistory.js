@@ -6,7 +6,7 @@ import moment from 'moment';
 
 const { Title } = Typography;
 
-function ActiveOrders(props) {
+function OrderHistory(props) {
 
     const [orders, setOrders] = useState();
 
@@ -72,4 +72,4 @@ function ActiveOrders(props) {
     )
 }
 
-export default ActiveOrders;
+export default OrderHistory;

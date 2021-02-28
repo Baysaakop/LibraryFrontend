@@ -111,7 +111,7 @@ function Home (props) {
                         <Vote />
                     </Col>
                 </Row>                    
-                <Row gutter={[16, 16]}>
+                {/* <Row gutter={[16, 16]}>
                     <Col xs={24} sm={24} md={8}>
                         <Card title="Захиалга /2 дугаар сард/" extra={<Statistic value={8.5} precision={1} valueStyle={{ color: 'green', fontSize: '18px' }} prefix={<ArrowUpOutlined />} suffix="%" />}>
                             <div style={{ display: 'flex', justifyContent: 'center', alignItems: 'center', height: '100px' }}>
@@ -133,7 +133,7 @@ function Home (props) {
                             </div>
                         </Card>
                     </Col>
-                </Row>
+                </Row> */}
             </div>
         </div>
     )

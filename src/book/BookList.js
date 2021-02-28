@@ -117,14 +117,14 @@ function BookList (props) {
             <div style={{ margin: '16px 0', padding: '16px', background: '#fff' }}>
                 <Form form={form} layout="vertical">
                     <Row gutter={16} style={{ margin: '8px 0' }}>
-                        <Col sm={24} md={12}>
+                        <Col sm={24} md={8}>
                             <Form.Item name="name" label="Ном хайх:">
                             {/* <p style={{ marginBottom: '8px' }}>Ном хайх:</p>  */}
                                 <Search placeholder="Номны нэрийг бичиж хайх" onSearch={onNameSearch} enterButton />
                             </Form.Item>
                         </Col>
-                        <Col sm={24} md={12} style={{ paddingRight: '8px' }}>
-                            <Form.Item name="category" label="Ангилал сонгох:">
+                        <Col sm={24} md={8}>
+                            <Form.Item name="category" label="Ангиллаар шүүх:">
                                 {/* <p style={{ marginBottom: '8px' }}>Ангилал сонгох:</p>  */}
                                 <Select
                                     defaultValue={category}
@@ -147,11 +147,23 @@ function BookList (props) {
                                     )}
                                 </Select>
                             </Form.Item>                                                    
-                        </Col>                                       
-                        {/* <Col sm={24} md={3} style={{ padding: 0 }}>
-                            <p style={{ marginBottom: '8px' }}>Ном шүүх:</p>     
-                            <Button type="primary" style={{ width: '100%' }} onClick={{filter}}>Шүүх</Button>
-                        </Col> */}
+                        </Col>                                                           
+                        <Col sm={24} md={8}>
+                            <Form.Item name="sort" label="Эрэмбэлэх:">                                
+                                <Select                                
+                                    showSearch                            
+                                    style={{ width: '100%' }}
+                                    placeholder="Эрэмбэ сонгох"                
+                                    onChange={selectCategory}
+                                    optionFilterProp="children"                
+                                >
+                                    <Option key="new">Шинээр нэмэгдсэн</Option>
+                                    <Option key="trend">Их хандалттай</Option>
+                                    <Option key="count">Нийт тоо</Option>
+                                    <Option key="available">Бэлэн байгаа</Option>
+                                </Select>
+                            </Form.Item>  
+                        </Col>
                     </Row>
                 </Form>                
                 { !loading ? (

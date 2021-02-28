@@ -16,7 +16,7 @@ function BookCard (props) {
                 <div className="cover">
                     <img className="cover-img" src={props.item.image && props.item.image !== null ? props.item.image : fallback} alt="cover" />
                     <div className="cover-overlay">                                                    
-                        {props.item.available > 0 ? <span>Бэлэн: {props.item.available}</span> : <span>Дууссан</span>}
+                        {props.item.available > 0 ? <span>Бэлэн: {props.item.available}/{props.item.count}</span> : <span>Дууссан</span>}
                     </div>
                 </div>
             }

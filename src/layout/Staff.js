@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { Breadcrumb, Grid, Button, Result, Tabs } from 'antd';
-import { EditOutlined, QrcodeOutlined, ReadOutlined, TagsOutlined, TeamOutlined, DiffOutlined, FormOutlined, DeleteOutlined, CheckCircleOutlined } from '@ant-design/icons';
+import { EditOutlined, QrcodeOutlined, ReadOutlined, TagsOutlined, TeamOutlined, DiffOutlined, FormOutlined, DeleteOutlined, CheckCircleOutlined, LockOutlined } from '@ant-design/icons';
 import axios from 'axios';
 import api from '../api';
 import { withRouter } from 'react-router-dom';
@@ -19,6 +19,7 @@ import BookUpdate from '../book/BookUpdate';
 import BookDelete from '../book/BookDelete';
 import OrderAdd from '../order/OrderAdd';
 import OrderFinish from '../order/OrderFinish';
+import PasswordResetConfirm from '../components/PasswordResetConfirm';
 
 const { useBreakpoint } = Grid;
 const { TabPane } = Tabs;
@@ -103,7 +104,7 @@ function Staff (props) {
                                     <AuthorDelete />
                                 </TabPane>
                             </Tabs>
-                        </TabPane> 
+                        </TabPane>                        
                         {/* <TabPane key={5} tab={<span><ShopOutlined />Компани</span>}>
                             <Tabs tabPosition="left">
                                 <TabPane tab={<span><DiffOutlined />{screens.xs ? '' : 'Шинээр бүртгэх'}</span>} key="add">
@@ -128,8 +129,11 @@ function Staff (props) {
                                 <TabPane tab={<span><DeleteOutlined />{screens.xs ? '' : 'Устгах'}</span>} key="delete">
                                     <CustomerDelete />
                                 </TabPane>
+                                <TabPane tab={<span><LockOutlined />{screens.xs ? '' : 'Нууц үг сэргээх'}</span>} key="reset">
+                                    <PasswordResetConfirm />
+                                </TabPane>
                             </Tabs>
-                        </TabPane>                    
+                        </TabPane>                                     
                     </Tabs>
                 </div>
             ) : (

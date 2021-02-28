@@ -9,6 +9,7 @@ import Staff from './layout/Staff';
 import BookList from './book/BookList';
 import Admin from './layout/Admin';
 import Help from './layout/Help';
+import PasswordReset from './user/PasswordReset';
 
 function BaseRouter () {
     return (
@@ -21,7 +22,8 @@ function BaseRouter () {
             <Route exact path="/login" component={Login} />
             <Route exact path="/signup" component={Signup} />
             <Route exact path="/logout" component={Logout} />
-            <Route exact path="/profile" component={Profile} />            
+            <Route exact path="/profile" component={Profile} />    
+            <Route exact path="/passwordreset" component={PasswordReset} />            
             {/* User pages */}
             <Route exact path="/staff" component={Staff} />
             <Route exact path="/admin" component={Admin} />

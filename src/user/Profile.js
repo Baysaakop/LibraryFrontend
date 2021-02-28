@@ -5,6 +5,7 @@ import axios from 'axios';
 import api from '../api';
 import { FieldNumberOutlined, ReadOutlined, UserOutlined, EditOutlined, MobileOutlined, LockOutlined } from '@ant-design/icons';
 import OrderHistory from '../order/OrderHistory';
+import PasswordChange from './PasswordChange';
 
 const { TabPane } = Tabs;
 const { Title } = Typography;
@@ -77,42 +78,44 @@ function Profile (props) {
                     <div style={{ margin: '16px 0', background: '#fff', padding: '16px' }}>
                         <Tabs defaultActiveKey={1}>
                             <TabPane key={1} tab={<span><UserOutlined />Хувийн мэдээлэл</span>}>
-                                <div style={{ padding: '8px' }}>
-                                    <Title level={4}>Хувийн мэдээлэл</Title>
-                                    <Form layout="vertical" form={form} onFinish={onFinish}>
-                                        <Form.Item name="code" label="SAP код:">
-                                            <Input disabled prefix={<FieldNumberOutlined style={{ color: '#a1a1a1' }} />} />
-                                        </Form.Item>                                        
-                                        <Form.Item name="last_name" label="Овог:">
-                                            <Input prefix={<UserOutlined style={{ color: '#a1a1a1' }} />} />
-                                        </Form.Item>
-                                        <Form.Item name="first_name" label="Нэр:">
-                                            <Input prefix={<UserOutlined style={{ color: '#a1a1a1' }} />} />
-                                        </Form.Item>
-                                        <Form.Item name="mobile" label="Утасны дугаар:">
-                                            <Input prefix={<MobileOutlined style={{ color: '#a1a1a1' }} />} />
-                                        </Form.Item>                                        
-                                        <Form.Item name="description" label="Тэмдэглэл:">
-                                            <TextArea rows={8} />
-                                        </Form.Item>
-                                        <Form.Item name="role" label="Хандах эрх:">
-                                            <Input prefix={<LockOutlined style={{ color: '#a1a1a1' }} />} disabled />
-                                        </Form.Item>
-                                        <Form.Item>
-                                            <div style={{ display: 'flex', justifyContent: 'flex-start' }}>                        
+                                <div style={{ width: '100%', display: 'flex', justifyContent: 'center', alignItems: 'center' }}>
+                                    <div style={{ background: '#fff', border: '1px solid #d1d1d1', padding: '16px', width: '500px' }}>                                          
+                                        <Form layout="vertical" form={form} onFinish={onFinish}>
+                                            <Form.Item name="code" label="SAP код:">
+                                                <Input disabled prefix={<FieldNumberOutlined style={{ color: '#a1a1a1' }} />} />
+                                            </Form.Item>                                        
+                                            <Form.Item name="last_name" label="Овог:">
+                                                <Input prefix={<UserOutlined style={{ color: '#a1a1a1' }} />} />
+                                            </Form.Item>
+                                            <Form.Item name="first_name" label="Нэр:">
+                                                <Input prefix={<UserOutlined style={{ color: '#a1a1a1' }} />} />
+                                            </Form.Item>
+                                            <Form.Item name="mobile" label="Утасны дугаар:">
+                                                <Input prefix={<MobileOutlined style={{ color: '#a1a1a1' }} />} />
+                                            </Form.Item>                                        
+                                            <Form.Item name="description" label="Тэмдэглэл:">
+                                                <TextArea rows={8} />
+                                            </Form.Item>
+                                            <Form.Item name="role" label="Хандах эрх:">
+                                                <Input prefix={<LockOutlined style={{ color: '#a1a1a1' }} />} disabled />
+                                            </Form.Item>
+                                            <Form.Item>                                                                  
                                                 <Popconfirm title="Хувийн мэдээллээ шинэчлэх үү？" okText="Тийм" cancelText="Үгүй" onConfirm={form.submit}>
-                                                    <Button type="primary" icon={<EditOutlined />} style={{ marginRight: '8px' }}>
+                                                    <Button type="primary" icon={<EditOutlined />} style={{ width: '100%' }}>
                                                         Хадгалах
                                                     </Button>
-                                                </Popconfirm>                              
-                                            </div>                                        
-                                        </Form.Item>         
-                                    </Form>
+                                                </Popconfirm>                                                                                                            
+                                            </Form.Item>         
+                                        </Form>
+                                    </div>
                                 </div>
                             </TabPane> 
-                            <TabPane key={2} tab={<span><ReadOutlined />Захиалгууд</span>}>
+                            <TabPane key={2} tab={<span><LockOutlined />Нууц үг солих</span>}>
+                                <PasswordChange />
+                            </TabPane>
+                            <TabPane key={3} tab={<span><ReadOutlined />Захиалгууд</span>}>
                                 <OrderHistory code={user.profile.code} />
-                            </TabPane>  
+                            </TabPane>                              
                         </Tabs>
                     </div>
                 </div>

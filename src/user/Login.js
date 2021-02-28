@@ -87,6 +87,9 @@ const Login = (props) => {
                                         <p> эсвэл 
                                             <NavLink to="/signup/"> энд дарж бүртгүүлнэ үү!</NavLink>
                                         </p>
+                                        <p> Та нууц үгээ мартсан бол номын санч дээр очоод 
+                                            <NavLink to="/passwordreset/"> нууц үг сэргээх </NavLink> товчийг дарна уу
+                                        </p>
                                     </Form.Item>
                                 </Form>
                             </div>

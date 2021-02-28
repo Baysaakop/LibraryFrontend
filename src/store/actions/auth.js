@@ -30,12 +30,65 @@ export const logout = () => {
     };
 }
 
-export const checkAuthTimeout = expirationTime => {
+export const passwordChange = (oldpassword, password1, password2, token) => {    
     return dispatch => {
-        setTimeout(() => {            
-            dispatch(logout());
-        }, expirationTime * 1000)
-    };
+        axios({
+            method: 'POST',
+            url: api.passwordchange,
+            data: {                
+                new_password1: password1,
+                new_password2: password2,
+                old_password: oldpassword            
+            },
+            headers: {
+                'Content-Type': 'application/json',
+                'Authorization': `Token ${token}`
+            }
+        }).then(res => {            
+            message.info("Таны нууц үг солигдлоо.")                   
+        }).catch(err => {
+            if (err.message.toString().endsWith("400")) {
+                message.error("Та нууц үгээ зөв оруулна уу.")
+            }
+        })    
+    }
+}
+
+export const passwordReset = (code, password) => {    
+    return dispatch => {
+        const data = {
+            "code": code,
+            "password": password,
+        }
+        axios({            
+            method: 'POST',
+            url: `${api.resetrequests}/`,
+            data: data
+        }).then(res => {            
+            message.info("Нууц үг сэргээх хүсэлт илгээгдлээ.")         
+        }).catch(err => {
+            if (err.message.toString().endsWith("406")) {
+                message.error(`${code} SAP код бүхий хэрэглэгч олдсонгүй.`)
+            }            
+        })    
+    }
+}
+
+export const passwordResetConfirm = (id) => {    
+    return dispatch => {
+        const data = {
+            "approved": "True",
+        }
+        axios({            
+            method: 'PUT',
+            url: `${api.resetrequests}/${id}/`,
+            data: data
+        }).then(res => {            
+            console.log(res)               
+        }).catch(err => {
+            console.log(err)
+        })    
+    }
 }
 
 export const authLogin = (username, password) => {
@@ -108,23 +161,5 @@ export const authSignup = (username, firstname, lastname, password1, password2) 
                 console.log(err)
             }
         })
-    }
-}
-
-export const authCheckState = () => {
-    return dispatch => {        
-        const token = localStorage.getItem('token');
-        const username = localStorage.getItem('username');
-        if (token === undefined) {
-            dispatch(logout());
-        } else {
-            const expirationDate = new Date(localStorage.getItem('expirationDate'));
-            if (expirationDate <= new Date()) {
-                dispatch(logout());
-            } else {
-                dispatch(authSuccess(token, username));
-                dispatch(checkAuthTimeout((expirationDate.getTime() - new Date().getTime()) / 1000))
-            }
-        }
     }
 }

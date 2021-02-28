@@ -14,6 +14,8 @@ const api = {
     users: baseURL + 'api/users/users',        
     signin: baseURL + 'rest-auth/login/',
     signup: baseURL + 'rest-auth/registration/',
+    passwordchange: baseURL + 'rest-auth/password/change/',    
+    resetrequests: baseURL + 'api/users/resetrequests',        
     profile: baseURL + 'rest-auth/user/',
     mediaItems: baseURL + 'media/items',
     mediaUsers: baseURL + 'media/users',    

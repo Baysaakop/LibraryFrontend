@@ -116,7 +116,7 @@ const Signup = (props) => {
                                             if (!value || getFieldValue('password') === value) {
                                                 return Promise.resolve();
                                             }
-                                            return Promise.reject('The two passwords that you entered do not match!');
+                                            return Promise.reject('2 нууц үг хоорондоо таарахгүй байна!');
                                             },
                                         }),
                                         ]}

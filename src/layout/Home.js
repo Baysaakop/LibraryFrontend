@@ -1,13 +1,11 @@
-import { Grid, Card, List, Typography, Row, Col, Statistic } from 'antd';
+import { Grid, Card, List, Row, Col } from 'antd';
 import React, { useEffect, useState } from 'react';
 import axios from 'axios';
 import api from '../api';
 import BookCard from '../book/BookCard';
 import Vote from '../components/Vote';
-import { ArrowUpOutlined } from '@ant-design/icons';
 
 const { useBreakpoint } = Grid;
-const { Title } = Typography;
 
 function Home (props) {     
     const screens = useBreakpoint();

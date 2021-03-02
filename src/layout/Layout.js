@@ -1,8 +1,8 @@
-import React, { useEffect, useState } from 'react';
+import React from 'react';
 import { Button, Layout, Tooltip } from 'antd';
 import CustomMenu from './Menu';
 import './Layout.css';
-import { BulbFilled, BulbOutlined, FacebookFilled, GithubFilled, InstagramOutlined, TwitterOutlined, YoutubeFilled } from '@ant-design/icons';
+import { FacebookFilled, GithubFilled, InstagramOutlined, TwitterOutlined, YoutubeFilled } from '@ant-design/icons';
 
 const { Header, Content, Footer } = Layout;
 

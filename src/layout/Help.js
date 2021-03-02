@@ -1,6 +1,6 @@
 import React from 'react';
-import { Grid, Breadcrumb, Tabs, Typography, Button, Tag } from 'antd';
-import { TeamOutlined, DiffOutlined, UnorderedListOutlined, PlusCircleOutlined, BarChartOutlined, HomeOutlined, ReadOutlined, QuestionCircleOutlined } from '@ant-design/icons';
+import { Grid, Breadcrumb, Tabs, Typography, Tag } from 'antd';
+import { HomeOutlined, ReadOutlined, QuestionCircleOutlined } from '@ant-design/icons';
 
 const { useBreakpoint } = Grid;
 const { TabPane } = Tabs;

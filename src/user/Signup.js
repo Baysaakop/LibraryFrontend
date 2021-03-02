@@ -1,5 +1,5 @@
 import React from 'react';
-import { Form, Input, Button, Typography, Result, Spin, InputNumber, message } from 'antd';
+import { Form, Input, Button, Typography, Result, Spin, message } from 'antd';
 import { FieldNumberOutlined, LoadingOutlined, LockOutlined, UserOutlined } from '@ant-design/icons';
 import { connect } from 'react-redux';
 import { NavLink } from 'react-router-dom';

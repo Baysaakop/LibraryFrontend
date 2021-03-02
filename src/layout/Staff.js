@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { Breadcrumb, Grid, Button, Result, Tabs } from 'antd';
-import { EditOutlined, QrcodeOutlined, ReadOutlined, TagsOutlined, TeamOutlined, DiffOutlined, FormOutlined, DeleteOutlined, CheckCircleOutlined, LockOutlined } from '@ant-design/icons';
+import { EditOutlined, QrcodeOutlined, ReadOutlined, TagsOutlined, TeamOutlined, FormOutlined, DeleteOutlined, CheckCircleOutlined, LockOutlined, PlusCircleOutlined } from '@ant-design/icons';
 import axios from 'axios';
 import api from '../api';
 import { withRouter } from 'react-router-dom';
@@ -56,80 +56,67 @@ function Staff (props) {
             { user && (user.profile.role === "2" || user.profile.role === "1") ? (
                 <div style={{ margin: '16px 0', background: '#fff', padding: '16px' }}>
                     <Tabs defaultActiveKey={1}>
-                        <TabPane key={1} tab={<span><QrcodeOutlined />Захиалга</span>}>
+                        <TabPane key={1} tab={<span><QrcodeOutlined style={{ fontSize: '18px' }} />Захиалга</span>}>
                             <Tabs tabPosition="left">
-                                <TabPane tab={<span><DiffOutlined />{screens.xs ? '' : 'Шинээр бүртгэх'}</span>} key="add">
+                                <TabPane tab={<span><PlusCircleOutlined style={{ fontSize: '18px' }} />{screens.xs ? '' : 'Шинээр бүртгэх'}</span>} key="add">
                                     <OrderAdd />
                                 </TabPane>
-                                <TabPane tab={<span><CheckCircleOutlined />{screens.xs ? '' : 'Захиалга хаах'}</span>} key="update">
+                                <TabPane tab={<span><CheckCircleOutlined style={{ fontSize: '18px' }} />{screens.xs ? '' : 'Захиалга хаах'}</span>} key="update">
                                     <OrderFinish />
                                 </TabPane>
                             </Tabs>
                         </TabPane>  
-                        <TabPane key={2} tab={<span><ReadOutlined />Ном</span>}>
+                        <TabPane key={2} tab={<span><ReadOutlined style={{ fontSize: '18px' }} />Ном</span>}>
                             <Tabs tabPosition="left">
-                                <TabPane tab={<span><DiffOutlined />{screens.xs ? '' : 'Шинээр бүртгэх'}</span>} key="add">
+                                <TabPane tab={<span><PlusCircleOutlined style={{ fontSize: '18px' }} />{screens.xs ? '' : 'Шинээр бүртгэх'}</span>} key="add">
                                     <BookAdd />
                                 </TabPane>
-                                <TabPane tab={<span><FormOutlined />{screens.xs ? '' : 'Засварлах'}</span>} key="update">
+                                <TabPane tab={<span><FormOutlined style={{ fontSize: '18px' }} />{screens.xs ? '' : 'Засварлах'}</span>} key="update">
                                     <BookUpdate />
                                 </TabPane>
-                                <TabPane tab={<span><DeleteOutlined />{screens.xs ? '' : 'Устгах'}</span>} key="delete">
+                                <TabPane tab={<span><DeleteOutlined style={{ fontSize: '18px' }} />{screens.xs ? '' : 'Устгах'}</span>} key="delete">
                                     <BookDelete />
                                 </TabPane>
                             </Tabs>
                         </TabPane> 
-                        <TabPane key={3} tab={<span><TagsOutlined />Ангилал</span>}>
+                        <TabPane key={3} tab={<span><TagsOutlined style={{ fontSize: '18px' }} />Ангилал</span>}>
                             <Tabs tabPosition="left">
-                                <TabPane tab={<span><DiffOutlined />{screens.xs ? '' : 'Шинээр бүртгэх'}</span>} key="add">
+                                <TabPane tab={<span><PlusCircleOutlined style={{ fontSize: '18px' }} />{screens.xs ? '' : 'Шинээр бүртгэх'}</span>} key="add">
                                     <CategoryAdd />
                                 </TabPane>
-                                <TabPane tab={<span><FormOutlined />{screens.xs ? '' : 'Засварлах'}</span>} key="update">
+                                <TabPane tab={<span><FormOutlined style={{ fontSize: '18px' }} />{screens.xs ? '' : 'Засварлах'}</span>} key="update">
                                     <CategoryUpdate />
                                 </TabPane>
-                                <TabPane tab={<span><DeleteOutlined />{screens.xs ? '' : 'Устгах'}</span>} key="delete">
+                                <TabPane tab={<span><DeleteOutlined style={{ fontSize: '18px' }} />{screens.xs ? '' : 'Устгах'}</span>} key="delete">
                                     <CategoryDelete />
                                 </TabPane>
                             </Tabs>
                         </TabPane> 
-                        <TabPane key={4} tab={<span><EditOutlined />Зохиолч</span>}>
+                        <TabPane key={4} tab={<span><EditOutlined style={{ fontSize: '18px' }} />Зохиолч</span>}>
                             <Tabs tabPosition="left">
-                                <TabPane tab={<span><DiffOutlined />{screens.xs ? '' : 'Шинээр бүртгэх'}</span>} key="add">
+                                <TabPane tab={<span><PlusCircleOutlined style={{ fontSize: '18px' }} />{screens.xs ? '' : 'Шинээр бүртгэх'}</span>} key="add">
                                     <AuthorAdd />
                                 </TabPane>
-                                <TabPane tab={<span><FormOutlined />{screens.xs ? '' : 'Засварлах'}</span>} key="update">
+                                <TabPane tab={<span><FormOutlined style={{ fontSize: '18px' }} />{screens.xs ? '' : 'Засварлах'}</span>} key="update">
                                     <AuthorUpdate />
                                 </TabPane>
-                                <TabPane tab={<span><DeleteOutlined />{screens.xs ? '' : 'Устгах'}</span>} key="delete">
+                                <TabPane tab={<span><DeleteOutlined style={{ fontSize: '18px' }} />{screens.xs ? '' : 'Устгах'}</span>} key="delete">
                                     <AuthorDelete />
                                 </TabPane>
                             </Tabs>
-                        </TabPane>                        
-                        {/* <TabPane key={5} tab={<span><ShopOutlined />Компани</span>}>
+                        </TabPane>                                                
+                        <TabPane key={5} tab={<span><TeamOutlined style={{ fontSize: '18px' }} />Хэрэглэгч</span>}>
                             <Tabs tabPosition="left">
-                                <TabPane tab={<span><DiffOutlined />{screens.xs ? '' : 'Шинээр бүртгэх'}</span>} key="add">
-                                    <PublisherAdd />
-                                </TabPane>
-                                <TabPane tab={<span><FormOutlined />{screens.xs ? '' : 'Засварлах'}</span>} key="update">
-                                    <PublisherUpdate />
-                                </TabPane>
-                                <TabPane tab={<span><DeleteOutlined />{screens.xs ? '' : 'Устгах'}</span>} key="delete">
-                                    <PublisherDelete />
-                                </TabPane>
-                            </Tabs>
-                        </TabPane>  */}
-                        <TabPane key={5} tab={<span><TeamOutlined />Хэрэглэгч</span>}>
-                            <Tabs tabPosition="left">
-                                <TabPane tab={<span><DiffOutlined />{screens.xs ? '' : 'Шинээр бүртгэх'}</span>} key="add">
+                                <TabPane tab={<span><PlusCircleOutlined style={{ fontSize: '18px' }} />{screens.xs ? '' : 'Шинээр бүртгэх'}</span>} key="add">
                                     <CustomerAdd />
                                 </TabPane>
-                                <TabPane tab={<span><FormOutlined />{screens.xs ? '' : 'Засварлах'}</span>} key="update">
+                                <TabPane tab={<span><FormOutlined style={{ fontSize: '18px' }} />{screens.xs ? '' : 'Засварлах'}</span>} key="update">
                                     <CustomerUpdate />
                                 </TabPane>
-                                <TabPane tab={<span><DeleteOutlined />{screens.xs ? '' : 'Устгах'}</span>} key="delete">
+                                <TabPane tab={<span><DeleteOutlined style={{ fontSize: '18px' }} />{screens.xs ? '' : 'Устгах'}</span>} key="delete">
                                     <CustomerDelete />
                                 </TabPane>
-                                <TabPane tab={<span><LockOutlined />{screens.xs ? '' : 'Нууц үг сэргээх'}</span>} key="reset">
+                                <TabPane tab={<span><LockOutlined style={{ fontSize: '18px' }} />{screens.xs ? '' : 'Нууц үг сэргээх'}</span>} key="reset">
                                     <PasswordResetConfirm />
                                 </TabPane>
                             </Tabs>

@@ -3,7 +3,6 @@ import { Button, message, Popconfirm, Spin, Table, Typography } from 'antd';
 import axios from 'axios';
 import api from '../api';
 import moment from 'moment';
-import { connect } from "react-redux";
 
 const { Title } = Typography;
 

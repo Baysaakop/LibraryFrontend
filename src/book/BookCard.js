@@ -1,6 +1,5 @@
 import React from 'react';
 import { Card, Typography, Tooltip } from 'antd';
-import { LikeOutlined, EditOutlined, EyeOutlined } from '@ant-design/icons';
 import './BookCard.css';
 import fallback from '../default-fallback-image.png';
 

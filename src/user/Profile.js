@@ -1,14 +1,13 @@
-import { Breadcrumb, Tabs, Form, Input, Popconfirm, Button, Result, Typography, message } from 'antd';
+import { Breadcrumb, Tabs, Form, Input, Popconfirm, Button, Result, message } from 'antd';
 import React, { useEffect, useState } from 'react';
 import { connect } from 'react-redux';
 import axios from 'axios';
 import api from '../api';
-import { FieldNumberOutlined, ReadOutlined, UserOutlined, EditOutlined, MobileOutlined, LockOutlined } from '@ant-design/icons';
+import { FieldNumberOutlined, UserOutlined, EditOutlined, MobileOutlined, LockOutlined, FileDoneOutlined } from '@ant-design/icons';
 import OrderHistory from '../order/OrderHistory';
 import PasswordChange from './PasswordChange';
 
 const { TabPane } = Tabs;
-const { Title } = Typography;
 const { TextArea } = Input;
 
 function Profile (props) {
@@ -77,7 +76,7 @@ function Profile (props) {
                     </Breadcrumb>
                     <div style={{ margin: '16px 0', background: '#fff', padding: '16px' }}>
                         <Tabs defaultActiveKey={1}>
-                            <TabPane key={1} tab={<span><UserOutlined />Хувийн мэдээлэл</span>}>
+                            <TabPane key={1} tab={<span><UserOutlined style={{ fontSize: '18px' }} />Хувийн мэдээлэл</span>}>
                                 <div style={{ width: '100%', display: 'flex', justifyContent: 'center', alignItems: 'center' }}>
                                     <div style={{ background: '#fff', border: '1px solid #d1d1d1', padding: '16px', width: '500px' }}>                                          
                                         <Form layout="vertical" form={form} onFinish={onFinish}>
@@ -110,10 +109,10 @@ function Profile (props) {
                                     </div>
                                 </div>
                             </TabPane> 
-                            <TabPane key={2} tab={<span><LockOutlined />Нууц үг солих</span>}>
+                            <TabPane key={2} tab={<span><LockOutlined style={{ fontSize: '18px' }} />Нууц үг солих</span>}>
                                 <PasswordChange />
                             </TabPane>
-                            <TabPane key={3} tab={<span><ReadOutlined />Захиалгууд</span>}>
+                            <TabPane key={3} tab={<span><FileDoneOutlined style={{ fontSize: '18px' }} />Захиалгын түүх</span>}>
                                 <OrderHistory code={user.profile.code} />
                             </TabPane>                              
                         </Tabs>

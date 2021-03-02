@@ -83,7 +83,7 @@ function Vote (props) {
     
     function onOptionSelect (e) {
         let id = e.target.value
-        let checked = e.target.checked
+        // let checked = e.target.checked
         if (props.token && user) {
             let votes = voteSelect.votes;
             let vote = votes.filter(x => x.customer === user.id)[0];

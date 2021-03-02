@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { Breadcrumb, Grid, Button, Result, Tabs, message } from 'antd';
-import { TeamOutlined, DiffOutlined, UnorderedListOutlined, PlusCircleOutlined, BarChartOutlined, ReloadOutlined, UserSwitchOutlined, UserAddOutlined } from '@ant-design/icons';
+import { TeamOutlined, UnorderedListOutlined, PlusCircleOutlined, BarChartOutlined, UserSwitchOutlined, UserAddOutlined } from '@ant-design/icons';
 import axios from 'axios';
 import api from '../api';
 import { withRouter } from 'react-router-dom';
@@ -62,7 +62,7 @@ function Admin (props) {
             { user && user.profile.role === "1" ? (
                 <div style={{ margin: '16px 0', background: '#fff', padding: '16px' }}>
                     <Tabs defaultActiveKey={1}>
-                        <TabPane key={1} tab={<span><TeamOutlined />Ажилтан</span>}>
+                        <TabPane key={1} tab={<span><TeamOutlined style={{ fontSize: '18px' }} />Ажилтан</span>}>
                             <Tabs tabPosition="left">
                                 <TabPane tab={<span><UserAddOutlined style={{ fontSize: '18px' }} />{screens.xs ? '' : 'Шинэ хэрэглэгчийн хүсэлтүүд'}</span>} key="add">
                                     <UserRequests />
@@ -72,12 +72,12 @@ function Admin (props) {
                                 </TabPane>                                                               
                             </Tabs>
                         </TabPane>
-                        <TabPane key={2} tab={<span><UnorderedListOutlined />Санал асуулга</span>}>
+                        <TabPane key={2} tab={<span><UnorderedListOutlined style={{ fontSize: '18px' }} />Санал асуулга</span>}>
                             <Tabs tabPosition="left">
-                                <TabPane tab={<span><BarChartOutlined />{screens.xs ? '' : 'Сүүлчийн санал асуулга'}</span>} key="view">
+                                <TabPane tab={<span><BarChartOutlined style={{ fontSize: '18px' }} />{screens.xs ? '' : 'Сүүлчийн санал асуулга'}</span>} key="view">
                                     
                                 </TabPane> 
-                                <TabPane tab={<span><PlusCircleOutlined />{screens.xs ? '' : 'Санал асуулга эхлүүлэх'}</span>} key="add">
+                                <TabPane tab={<span><PlusCircleOutlined style={{ fontSize: '18px' }} />{screens.xs ? '' : 'Санал асуулга эхлүүлэх'}</span>} key="add">
                                     <Result
                                         title="Шинээр сануулга асуулга эхлүүлэх товчийг дарснаар өмнөх санал асуулгыг дууссанд тооцохыг анхаарна уу."
                                         extra={
